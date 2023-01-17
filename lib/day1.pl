@@ -17,11 +17,11 @@ my $part_1 = max map {
 print("$part_1\n");
 
 # Part 2
-my @part_2 = sum(
+my $part_2 = sum(
     (
         sort { $b <=> $a } map {
             sum map { int($_) } split( "\n", $_ )
         } split( "\n\n", $content )
     )[ 0 .. 2 ]
 );
-print("@part_2\n");
+print("$part_2\n");
