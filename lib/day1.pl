@@ -12,16 +12,27 @@ my $content = $file->slurp_utf8();
 
 # Part 1
 my $part_1 = max map {
-    sum map { int($_) } split( "\n", $_ )
-} split( "\n\n", $content );
+  sum map {
+    int $_
+  }
+  split "\n", $_
+}
+split "\n\n", $content;
 print("$part_1\n");
 
 # Part 2
 my $part_2 = sum(
-    (
-        sort { $b <=> $a } map {
-            sum map { int($_) } split( "\n", $_ )
-        } split( "\n\n", $content )
-    )[ 0 .. 2 ]
+  (
+    sort {
+      $b <= > $a
+    }
+    map {
+      sum map {
+        int($_)
+      }
+      split("\n", $_)
+    }
+    split("\n\n", $content)
+  )[0. .2]
 );
 print("$part_2\n");
